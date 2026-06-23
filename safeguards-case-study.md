@@ -35,3 +35,95 @@ In parallel, Andrés maintains ASLAN-ARC, a multi-project monitoring dashboard s
 The "user" or supervisor in this system is singular: Andrés, the founder. What the safeguards protect includes: (1) **codebase integrity**—ensuring that code changes align with the project's architecture and constraints; (2) **human decision authority**—enforcing that no AI system unilaterally commits changes, makes strategic pivots, or publishes content without Andrés's explicit prior consent; and (3) **end-user wellbeing**—ensuring that any wellness tool reaching eventual users includes appropriate legal safeguards, medical disclaimers, and has undergone human review for potential to cause harm.
 
 This is a constrained, supervised environment: one human, known governance boundaries, explicit approval gates, and persistent audit trails. The case study will examine how this structure—designed for a single founder and small AI-assisted team—scales (or fails to scale) when the system moves toward production with adversarial populations, untrusted operators, or distributed autonomous agents.
+
+---
+
+## The Four Layers
+
+Defense in depth for scaling AI systems operates across four structural layers, each designed to catch different kinds of failures. The diagram below traces a single task through all four layers, showing how a malicious or erroneous directive is intercepted, contained, detected, and potentially recovered from. Vitalis demonstrates this architecture in practice:
+
+**Prevention** — stop bad actions before they happen.
+Bad directives never reach execution because governance is built into the problem statement itself. In Vitalis, the CLAUDE.md file codifies a deny-by-default governance rule: "The AI will not execute any code, deployment, or change without first presenting a clear plan and obtaining explicit approval from Andrés exclusively." [es. "La IA no ejecutará ningún código, despliegue o cambio sin antes exponer un plan claro y obtener aprobación explícita por parte de Andrés en exclusividad."] This is not a guideline; it is a structural constraint on what the system can attempt. Additionally, work is scoped via "fichas de encargo" (work orders)—each task specifies not only what must be done but explicitly what must NOT be touched. An example work order might specify that a section must contain role boundaries, must not touch git history, and must not be written to files or committed by the agent. The boundaries are unambiguous. An agent instructed with contradictory directives—write a section but also do not modify anything—faces a constraint it cannot satisfy, so it stays in the design phase rather than attempting to execute.
+
+**Containment** — limit what a component can do, so a failure stays bounded.
+Even if prevention fails, the blast radius must be limited. In Vitalis, the drafting agent (Haiku) is operationally limited to returning text—it has no permission to write files, commit to git, or deploy. If Haiku's output contains a serious error, the damage is confined to a chat message that the next layer can reject. The file system and git repository remain untouched. In contrast, an executor agent that could write and commit without review would mean a corrupted file is live until someone notices; with Haiku constrained to text-only, the error is visible before any persistence.
+
+**Detection** — notice when something has gone wrong.
+A second independent role, Sonnet, acts as a quality guardian. It audits each draft from Haiku against its ficha (its work order) before acceptance, checking field by field: Is the content there? Is the tone right? Are assumptions grounded? During the pilot run of Module 1 of the method documentation, Sonnet caught that the anchor to real projects was missing—a semantic flaw that neither Opus nor the human supervisor had noticed while reading quickly. Every change is logged as a separate git commit, making the history reviewable and the responsible party visible. A human can inspect what changed and decide whether to accept or revert.
+
+**Recovery** — restore a good state after a failure.
+Vitalis persists each accepted section as a distinct git commit, preserving full history and enabling reversion to any prior state. Persistent memory (stored in `.md` memory files linked to sessions) records decisions and resolved issues, so if a problem recurs in a later session, the solution is already documented and does not have to be rediscovered.
+
+<p align="center">
+<svg width="880" height="380" viewBox="0 0 880 380" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="A single task traversing the four defense-in-depth layers: Prevention, Containment, Detection, Recovery.">
+  <title>A single task traversing the four defense-in-depth layers</title>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#3b5566"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#b25b4a"/>
+    </marker>
+  </defs>
+
+  <!-- Task token -->
+  <rect x="18" y="150" width="96" height="56" rx="10" fill="#eef3f6" stroke="#3b5566" stroke-width="1.5"/>
+  <text x="66" y="174" text-anchor="middle" font-size="13" font-weight="600" fill="#22343f">Task</text>
+  <text x="66" y="192" text-anchor="middle" font-size="11" fill="#5a7180">(directive)</text>
+
+  <!-- Layer columns -->
+  <!-- Prevention -->
+  <rect x="150" y="110" width="150" height="136" rx="12" fill="#f3f7f4" stroke="#4a7a5d" stroke-width="1.5"/>
+  <text x="225" y="98" text-anchor="middle" font-size="14" font-weight="700" fill="#2f5a40">1 · Prevention</text>
+  <text x="225" y="150" text-anchor="middle" font-size="11.5" fill="#3d5346">deny-by-default</text>
+  <text x="225" y="168" text-anchor="middle" font-size="11.5" fill="#3d5346">human approval</text>
+  <text x="225" y="186" text-anchor="middle" font-size="11.5" fill="#3d5346">scoped work orders</text>
+  <text x="225" y="218" text-anchor="middle" font-size="10.5" font-style="italic" fill="#6a7f70">blocks before start</text>
+
+  <!-- Containment -->
+  <rect x="340" y="110" width="150" height="136" rx="12" fill="#f3f6f8" stroke="#3f6b86" stroke-width="1.5"/>
+  <text x="415" y="98" text-anchor="middle" font-size="14" font-weight="700" fill="#2c4f66">2 · Containment</text>
+  <text x="415" y="150" text-anchor="middle" font-size="11.5" fill="#36495a">drafter returns</text>
+  <text x="415" y="168" text-anchor="middle" font-size="11.5" fill="#36495a">text only —</text>
+  <text x="415" y="186" text-anchor="middle" font-size="11.5" fill="#36495a">no write, no commit</text>
+  <text x="415" y="218" text-anchor="middle" font-size="10.5" font-style="italic" fill="#6a7c89">blast radius = text</text>
+
+  <!-- Detection -->
+  <rect x="530" y="110" width="150" height="136" rx="12" fill="#f7f5f3" stroke="#8a6d3f" stroke-width="1.5"/>
+  <text x="605" y="98" text-anchor="middle" font-size="14" font-weight="700" fill="#6b5226">3 · Detection</text>
+  <text x="605" y="150" text-anchor="middle" font-size="11.5" fill="#5a4a36">independent</text>
+  <text x="605" y="168" text-anchor="middle" font-size="11.5" fill="#5a4a36">guardian review</text>
+  <text x="605" y="186" text-anchor="middle" font-size="11.5" fill="#5a4a36">+ reviewable diffs</text>
+  <text x="605" y="218" text-anchor="middle" font-size="10.5" font-style="italic" fill="#897a64">catches bad drafts</text>
+
+  <!-- Recovery -->
+  <rect x="720" y="110" width="150" height="136" rx="12" fill="#f6f3f6" stroke="#71527f" stroke-width="1.5"/>
+  <text x="795" y="98" text-anchor="middle" font-size="14" font-weight="700" fill="#553f60">4 · Recovery</text>
+  <text x="795" y="150" text-anchor="middle" font-size="11.5" fill="#4a3a52">revertible commits</text>
+  <text x="795" y="168" text-anchor="middle" font-size="11.5" fill="#4a3a52">+ persistent</text>
+  <text x="795" y="186" text-anchor="middle" font-size="11.5" fill="#4a3a52">memory</text>
+  <text x="795" y="218" text-anchor="middle" font-size="10.5" font-style="italic" fill="#7d6a87">restores good state</text>
+
+  <!-- Flow arrows (accepted path) -->
+  <line x1="114" y1="178" x2="148" y2="178" stroke="#3b5566" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <line x1="300" y1="178" x2="338" y2="178" stroke="#3b5566" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <line x1="490" y1="178" x2="528" y2="178" stroke="#3b5566" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <line x1="680" y1="178" x2="718" y2="178" stroke="#3b5566" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <!-- Rejection routes (downward) -->
+  <line x1="225" y1="246" x2="225" y2="300" stroke="#b25b4a" stroke-width="1.4" stroke-dasharray="5,4" marker-end="url(#arrowRed)"/>
+  <line x1="605" y1="246" x2="605" y2="300" stroke="#b25b4a" stroke-width="1.4" stroke-dasharray="5,4" marker-end="url(#arrowRed)"/>
+  <text x="225" y="320" text-anchor="middle" font-size="10.5" fill="#a0503f">refused / not started</text>
+  <text x="605" y="320" text-anchor="middle" font-size="10.5" fill="#a0503f">rejected → re-draft</text>
+
+  <!-- Recovery loop back -->
+  <path d="M795 246 L795 340 L225 340 L225 340" fill="none" stroke="#71527f" stroke-width="1.3" stroke-dasharray="4,4"/>
+  <line x1="225" y1="340" x2="120" y2="340" stroke="#71527f" stroke-width="1.3" stroke-dasharray="4,4" marker-end="url(#arrow)"/>
+  <text x="470" y="357" text-anchor="middle" font-size="10.5" fill="#6b5179">revert / re-attempt from a known-good state</text>
+
+  <!-- Output -->
+  <text x="795" y="262" text-anchor="middle" font-size="10.5" font-weight="600" fill="#2f5a40">✓ accepted commit</text>
+</svg>
+</p>
+
+*Figure 1 — A single task traversing the four layers. The solid path is the accepted route; dashed red routes show where Prevention and Detection intercept a faulty directive, and the purple loop shows Recovery returning the system to a known-good state.*
