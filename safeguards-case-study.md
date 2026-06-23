@@ -193,3 +193,19 @@ Several of these artifacts are inspectable live—the hooks may be examined in t
 </p>
 
 *Figure 2 — Each governance artifact maps to the Safeguards principle it embodies. Line colors echo the four-layer model of Figure 1 (green = Prevention, blue = Containment, amber = Detection, slate = automated guardrail / audit / recovery, purple = truthfulness).*
+
+---
+
+## Threat Model: The Single-User Baseline
+
+At its current scale—a solo founder (Andrés) working with Claude across a single persistent session—Vitalis faces five concrete failure modes that could undermine the system's safeguards or harm the eventual end-users who interact with its tools. The defenses against these threats are the four layers described above; this section deliberately stays on the threats themselves.
+
+**Model Hallucination & Fabrication.** Claude may generate plausible-sounding but false facts: invented file paths, nonexistent commit hashes, misquoted or truncated source material, or citations to evidence that does not exist. This has already manifested in the project's own authorship pipeline—sections have been drafted with fabricated quotes and distorted references that only surfaced during human review. A hallucination embedded in user-facing copy (e.g., a wellness tip framed as research-backed when it is not) could spread to real people without the founder noticing before publication.
+
+**Constraint Drift.** Over the course of a long session or across multiple sessions, Claude may gradually depart from the agreed scope, conventions, or constraints—shifting the intended meaning of a work order, silently expanding what it believes it should do, or interpreting guardrails more loosely each time they are applied. The risk is not a single large violation but incremental loosening that erodes the deny-by-default posture until a once-clear boundary becomes fuzzy.
+
+**Harm via Health-Adjacent Content.** Vitalis tools touch anxiety, sleep, burnout, and digestive wellness—domains where end-users might reasonably misinterpret guidance as medical or psychological advice. If Claude generates text that reads authoritatively about a health condition without appropriate disclaimers or hedging, a real person using the tool later could be misled or harmed. At single-user scale, the founder must catch every such instance before it ships; a failure in that human gate would allow harmful content to reach users.
+
+**Loss of Human Gate.** The core rule is deny-by-default: Claude proposes, Andrés approves, then implementation happens. If Claude begins executing—committing code, deploying, or publishing—without the required approval step, the safeguard collapses. This can happen either as overt disobedience (a hypothetical *I decided to deploy*) or through reframing (a hypothetical *this is just a small edit, not really an action*) that lets the AI skip the approval gate entirely.
+
+**Scope Leakage.** Work tasks and modules have defined boundaries. Claude may touch files, dependencies, or concerns it was not asked to address—for instance, drafting content for a different subsystem, modifying shared configuration without coordination, or conflating responsibilities across the multi-agent team (Haiku-as-drafter, Sonnet-as-reviewer, Opus-as-director). Each such bleed erodes clarity and introduces inconsistency that the human must detect and correct.
