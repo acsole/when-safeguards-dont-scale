@@ -127,3 +127,69 @@ Vitalis persists each accepted section as a distinct git commit, preserving full
 </p>
 
 *Figure 1 — A single task traversing the four layers. The solid path is the accepted route; dashed red routes show where Prevention and Detection intercept a faulty directive, and the purple loop shows Recovery returning the system to a known-good state.*
+
+---
+
+## Artifact → Principle → Evidence
+
+This section maps each governance artifact—the documents, hooks, commits, and practices that operationalize the system—to the Safeguards principle it embodies and to a real, inspectable path in the codebase or filesystem. The mapping grounds claims in verifiable evidence rather than assertion; the diagram below summarizes the relationships. Paths are written relative to a parent directory that holds both the `calmkit-brain` and `ASLAN-ARC` repositories.
+
+| Artifact | Safeguards principle | Evidence (verified path / ref) |
+|----------|----------------------|--------------------------------|
+| Governance charter (deny-by-default; the AI proposes, the human approves) | Human-in-the-loop + deny-by-default | `calmkit-brain/CLAUDE.md` |
+| Work orders that scope each task ("must contain / must NOT touch") | Task scoping / least authority | `calmkit-brain/00-método-de-trabajo/fichas-de-encargo.md` |
+| Canonical method doc (roles; drafter returns text only, cannot write/commit) | Containment / no persistence by the executor | `calmkit-brain/00-método-de-trabajo/metodo-de-trabajo.md` |
+| Independent quality-guardian review (a different role audits each draft) | Detection / separation of duties | per-section commits in `safeguards-case-study/` git history |
+| Automated enforcement hook (blocks edits that violate `file://` invariants; PostToolUse, exit 2) | Automated guardrail / policy enforcement | `~/.claude/hooks/aslan-enforcer.js` |
+| Telemetry hook (records tool activity) | Audit logging / observability | `~/.claude/hooks/aslan-telemetry.js` |
+| Per-section commits + project init/seed commits | Traceability + recovery | `calmkit-brain` commits `8cf270c`, `94fe756`, `2c99c30` |
+| Data-honesty principle (never fabricate dashboard metrics) | Truthfulness / no fabrication of data | `ASLAN-ARC/js/data/` and `ASLAN-ARC/js/state.js` — *behavioral convention, not a rule written in these files* |
+| Incident Log recording the pipeline's own caught failures | Calibrated honesty / transparency of failure | `safeguards-case-study/` Incident Log section (later in this document) |
+
+Several of these artifacts are inspectable live—the hooks may be examined in the filesystem, the commits queried from git, and the state layer read directly. The appendix provides exact commands to verify each row; here, the focus is the mapping itself.
+
+<p align="center">
+<svg width="920" height="540" viewBox="0 0 920 540" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="A bipartite map connecting nine governance artifacts on the left to six Safeguards principles on the right.">
+  <title>Mapping of governance artifacts to Safeguards principles</title>
+
+  <!-- connecting lines (drawn first, behind boxes) -->
+  <line x1="280" y1="70"  x2="640" y2="95"  stroke="#4a7a5d" stroke-width="1.6"/>
+  <line x1="280" y1="123" x2="640" y2="175" stroke="#4a7a5d" stroke-width="1.6"/>
+  <line x1="280" y1="176" x2="640" y2="255" stroke="#3f6b86" stroke-width="1.6"/>
+  <line x1="280" y1="229" x2="640" y2="335" stroke="#8a6d3f" stroke-width="1.6"/>
+  <line x1="280" y1="282" x2="640" y2="415" stroke="#3b5566" stroke-width="1.6"/>
+  <line x1="280" y1="335" x2="640" y2="415" stroke="#3b5566" stroke-width="1.6"/>
+  <line x1="280" y1="388" x2="640" y2="415" stroke="#3b5566" stroke-width="1.6"/>
+  <line x1="280" y1="441" x2="640" y2="495" stroke="#71527f" stroke-width="1.6"/>
+  <line x1="280" y1="494" x2="640" y2="495" stroke="#71527f" stroke-width="1.6"/>
+
+  <!-- column headers -->
+  <text x="155" y="30" text-anchor="middle" font-size="13" font-weight="700" fill="#22343f">Governance artifact</text>
+  <text x="770" y="30" text-anchor="middle" font-size="13" font-weight="700" fill="#22343f">Safeguards principle</text>
+
+  <!-- left: artifacts -->
+  <g font-size="11.5" fill="#22343f">
+    <rect x="30" y="51"  width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="74">CLAUDE.md — governance charter</text>
+    <rect x="30" y="104" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="127">fichas-de-encargo.md — work orders</text>
+    <rect x="30" y="157" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="180">metodo-de-trabajo.md — method doc</text>
+    <rect x="30" y="210" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="233">quality-guardian review (Sonnet)</text>
+    <rect x="30" y="263" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="286">aslan-enforcer.js (hook)</text>
+    <rect x="30" y="316" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="339">aslan-telemetry.js (hook)</text>
+    <rect x="30" y="369" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="392">git history / per-section commits</text>
+    <rect x="30" y="422" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="445">ASLAN data-honesty convention</text>
+    <rect x="30" y="475" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="498">Incident Log (this document)</text>
+  </g>
+
+  <!-- right: principles -->
+  <g font-size="11.5" font-weight="600">
+    <rect x="640" y="73"  width="260" height="44" rx="8" fill="#f3f7f4" stroke="#4a7a5d"/><text x="652" y="91" fill="#2f5a40">Human-in-the-loop +</text><text x="652" y="107" fill="#2f5a40">deny-by-default</text>
+    <rect x="640" y="153" width="260" height="44" rx="8" fill="#f3f7f4" stroke="#4a7a5d"/><text x="652" y="171" fill="#2f5a40">Least authority /</text><text x="652" y="187" fill="#2f5a40">task scoping</text>
+    <rect x="640" y="233" width="260" height="44" rx="8" fill="#f3f6f8" stroke="#3f6b86"/><text x="652" y="259" fill="#2c4f66">Containment</text>
+    <rect x="640" y="313" width="260" height="44" rx="8" fill="#f7f5f3" stroke="#8a6d3f"/><text x="652" y="331" fill="#6b5226">Detection /</text><text x="652" y="347" fill="#6b5226">separation of duties</text>
+    <rect x="640" y="393" width="260" height="44" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="652" y="411" fill="#22343f">Automated guardrail ·</text><text x="652" y="427" fill="#22343f">audit · recovery</text>
+    <rect x="640" y="473" width="260" height="44" rx="8" fill="#f6f3f6" stroke="#71527f"/><text x="652" y="491" fill="#553f60">Truthfulness /</text><text x="652" y="507" fill="#553f60">calibrated honesty</text>
+  </g>
+</svg>
+</p>
+
+*Figure 2 — Each governance artifact maps to the Safeguards principle it embodies. Line colors echo the four-layer model of Figure 1 (green = Prevention, blue = Containment, amber = Detection, slate = automated guardrail / audit / recovery, purple = truthfulness).*
