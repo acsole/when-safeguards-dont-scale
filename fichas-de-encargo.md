@@ -21,6 +21,7 @@ Markdown en inglés, sección autocontenida, tono profesional y sobrio (no marke
 
 ## Orden de redacción
 **S0 → S1 → S3 → S4 → S2 → S5 → S6 → S7**, con **re-paso de S0 tras S5** (el pitch es sección viva: se blinda cuando el cuerpo ya existe).
+**S9** (Incident Log) es sección VIVA: se nutre en cada sesión, a medida que el propio pipeline atrapa fallos durante la redacción. No se "redacta de una"; se acumula.
 
 ---
 
@@ -74,3 +75,15 @@ Markdown en inglés, sección autocontenida, tono profesional y sobrio (no marke
 - **Debe contener:** Comandos reproducibles (`git log`, `cat` de hooks) con rutas reales.
 - **NO debe tocar:** Argumentación nueva.
 - **Criterio de listo:** Un entrevistador puede correr todo y verificar las afirmaciones.
+
+## S9 — Incident Log: Safeguards Observed During Authorship
+- **Subtítulo:** *the method catching its own failures, recorded as they happened.*
+- **Propósito:** Documentar casos REALES en que el propio pipeline (Haiku→guardián→Opus→humano) atrapó un fallo durante la construcción de ESTE documento u otros del proyecto. Evidencia de proceso, no afirmación abstracta.
+- **Debe contener:** Por entrada — qué se intentó, qué falló, qué capa/rol lo atrapó, cómo se corrigió, y la lección de Safeguards que ilustra. Formato de bitácora con fecha.
+- **NO debe tocar:** Argumentación teórica nueva (eso vive en S5/S6); inventar incidentes (cada entrada debe ser un hecho ocurrido y trazable en el git de este repo).
+- **Naturaleza:** SECCIÓN VIVA — se acumula a lo largo de las sesiones.
+- **Criterio de listo (por entrada):** El incidente es verificable contra el historial git (commit que lo corrigió) y nombra la lección Safeguards.
+
+### Entradas capturadas (en bruto, a formalizar en inglés en el doc)
+- **#1 — Fabricated verbatim quote (2026-06-22, during S1).** Haiku, al redactar S1, presentó una paráfrasis traducida del `calmkit-brain/CLAUDE.md` como **cita textual** atribuida a un "project charter" inexistente. El **quality-guardian (Sonnet)** lo marcó como BLOQUEANTE: fabricación de evidencia. Se corrigió a paráfrasis honesta sin comillas (commit `1e9c69a`). Lección Safeguards: un modelo puede alucinar **procedencia/evidencia**, no solo hechos; la cita con comillas es un vector de falsa autoridad. Capa que lo atrapó: **Detección** (revisión independiente por un rol distinto al que redactó). Ironía instructiva: ocurrió en el documento que *trata sobre* honestidad calibrada.
+- **#1b — Overclaim del hook (mismo turno).** En la misma sección, Haiku afirmó que el hook de ASLAN "bloquea ediciones no autorizadas y previene cambios rogue aun si un proceso intenta evadir los controles" — sobre-afirmación. El guardián lo marcó; Opus **verificó el código real** (`~/.claude/hooks/aslan-enforcer.js`) y se corrigió a la descripción precisa (bloquea ediciones que violan invariantes `file://`; ha disparado en ediciones reales). Lección: calibrar afirmaciones contra la fuente, no suavizar a ciegas.
