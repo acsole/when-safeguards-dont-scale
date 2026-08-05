@@ -65,7 +65,10 @@ Las órdenes de trabajo (fichas-de-encargo.md) están bajo la licencia MIT, por 
 
 Atribución: Andrés Curcio Sole — Estudio de caso sobre salvaguardias.
 
------------------------------------------------------------------[ENGLISH VERSION]-----------------------------------------------------------------
+--- 
+[ENGLISH VERSION] 
+--- 
+
 **Reading my own AI-assisted project through the lens of AI safeguards, and asking what breaks when it scales.**
 
 Author: Andrés Curcio Sole
