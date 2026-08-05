@@ -8,7 +8,14 @@ Author: Andrés Curcio Sole
 
 ## What this is
 
-A case study that examines a real, single-user project I built with safeguards in place from the start — deny-by-default governance, quality checkpoints across agent workflows, and traceability hooks — and traces each safeguard from my own oversight as a single founder to the pressure of an adversarial, population-scale deployment. It separates the principles that hold under adversarial stress from the fractures that only appear in production.
+A case study that examines a real, single-user project I built with safeguards in place from the start: 
+
+- deny-by-default governance,
+- quality checkpoints across agent workflows,
+- traceability hooks
+- and traces each safeguard from my own oversight as a single founder to the pressure of an adversarial, population-scale deployment.
+
+It separates the principles that hold under adversarial stress from the fractures that only appear in production.
 
 The central question: can mechanisms designed for one trusted supervisor survive when millions of users, thousands of concurrent agents, and bad actors probe the same checkpoints at the same time? The answer worked out in the document is that they cannot, and that the reason is structural rather than technical.
 
@@ -16,11 +23,17 @@ The central question: can mechanisms designed for one trusted supervisor survive
 
 This is **NOT** a claim of production-grade security. I describe safeguard design and the cases I have actually observed. I have **no measured detection rate, and I do not claim one**.
 
-## Status — living document, work in progress
+## Status: living document, work in progress
 
-I draft this through the same multi-agent pipeline it describes: a drafting model works against a work order I write, an independent reviewer model audits the draft against that order, and I approve, reject or rewrite every section before anything is committed. The repository is updated as sections are completed.
+I draft this through the same multi-agent pipeline it describes: 
+- a drafting model works against a work order I write,
+- an independent reviewer model audits the draft against that order,
+- and I approve, reject or rewrite every section before anything is committed.
+- The repository is updated as sections are completed.
 
-**Written so far:** Elevator Pitch · Context · The Four Layers · Artifact → Principle → Evidence · Threat Model · Where It Breaks at Scale
+**Written so far:** 
+
+- Elevator Pitch · Context · The Four Layers · Artifact → Principle → Evidence · Threat Model · Where It Breaks at Scale
 
 **Scoped but not yet written:** Calibrated Honesty (my limitations, stated plainly) · Appendix on live verification · Incident Log of the failures this pipeline catches while writing this document
 
