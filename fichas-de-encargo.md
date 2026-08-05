@@ -7,15 +7,6 @@
 ## Eje intelectual transversal
 El valor diferencial es el **salto de escala**: de "1 usuario / 1 proyecto" → entornos productivos con miles/millones de vidas y adversarios orquestando decenas de miles de agentes. La honestidad calibrada (decir qué NO se afirma) es en sí misma un rasgo Safeguards.
 
-## Insumos comunes (rutas relativas desde `calmkit-brain/`, salvo nota)
-- `calmkit-brain/CLAUDE.md` — deny-by-default + restricciones innegociables (human-in-the-loop).
-- `calmkit-brain/00-método-de-trabajo/fichas-de-encargo.md` — scoping de autonomía.
-- `calmkit-brain/00-método-de-trabajo/metodo-de-trabajo.md` — documento canónico del método.
-- `~/.claude/hooks/aslan-enforcer.js` — guardrail automatizado (bloqueó ediciones reales).
-- `~/.claude/hooks/aslan-telemetry.js` — telemetría/auditoría.
-- Historial git de `calmkit-brain` (trazabilidad real).
-- `../../ASLAN-ARC/` — dashboard con principio de honestidad de datos.
-
 ## Forma de salida (todas)
 Markdown en inglés, sección autocontenida, tono profesional y sobrio (no marketing). Diagramas como SVG embebible cuando la ficha lo indique.
 
