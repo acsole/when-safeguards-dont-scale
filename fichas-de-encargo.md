@@ -27,7 +27,7 @@ Markdown en inglés, sección autocontenida, tono profesional y sobrio (no marke
 
 ## S1 — Context: The System Under Study
 - **Propósito:** Describir el sistema bajo estudio para un lector sin contexto previo.
-- **Debe contener:** Qué es Vitalis; el método multi-agente (Opus dirige / Sonnet revisa / Haiku redacta); ASLAN; quién es el "usuario"; qué se protege.
+- **Debe contener:** Qué es Remanso; el método multi-agente (Opus dirige / Sonnet revisa / Haiku redacta); el dashboard de monitoreo; quién es el "usuario"; qué se protege.
 - **NO debe tocar:** Las 4 capas (eso es S3); análisis de escala (S5); tabla de evidencia (S4).
 - **Criterio de listo:** Un lector externo ubica el sistema sin contexto previo.
 

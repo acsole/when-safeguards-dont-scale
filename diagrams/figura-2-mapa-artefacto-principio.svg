@@ -24,10 +24,10 @@
     <rect x="30" y="104" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="127">fichas-de-encargo.md — work orders</text>
     <rect x="30" y="157" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="180">metodo-de-trabajo.md — method doc</text>
     <rect x="30" y="210" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="233">quality-guardian review (Sonnet)</text>
-    <rect x="30" y="263" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="286">aslan-enforcer.js (hook)</text>
-    <rect x="30" y="316" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="339">aslan-telemetry.js (hook)</text>
+    <rect x="30" y="263" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="286">enforcement hook</text>
+    <rect x="30" y="316" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="339">telemetry hook</text>
     <rect x="30" y="369" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="392">git history / per-section commits</text>
-    <rect x="30" y="422" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="445">ASLAN data-honesty convention</text>
+    <rect x="30" y="422" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="445">dashboard data-honesty convention</text>
     <rect x="30" y="475" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="498">Incident Log (this document)</text>
   </g>
 

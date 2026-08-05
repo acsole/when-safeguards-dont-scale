@@ -30,9 +30,9 @@ Rather than lean on a single model, I split the work across several, matching th
 
 This is not autonomous multi-agent reasoning, and I want to be precise about that because the distinction is the whole point. Every output waits for me. I review every substantive decision before any code is written, deployed or published, and a proposal does not proceed without my explicit approval. Between sessions, a file-based memory of git-tracked markdown files carries forward the decisions, constraints and lessons already settled, so that continuity does not depend on any single conversation staying alive.
 
-### The ASLAN-ARC Dashboard
+### The Monitoring Dashboard
 
-In parallel I maintain ASLAN-ARC, a dashboard that shows me the state of several projects at once, built in plain JavaScript with Web Components and no dependencies. Two principles in it are non-negotiable for me. The first is data honesty: what the dashboard shows has to be true, and I will not let it fabricate a number to display progress that has not happened. The second is automated enforcement: a hook inspects edits to the dashboard's core `.js` files and blocks any edit that violates its `file://` architectural invariants, such as `import`, `export`, `type="module"` or `fetch()`. That hook has fired on real edits, mine included. The dashboard also keeps telemetry and audit logs, so there is a persistent record of what changed and when, which is what I need in order to check afterwards whether a safeguard boundary actually held.
+In parallel I maintain a monitoring dashboard that shows me the state of several projects at once, built in plain JavaScript with Web Components and no dependencies. Two principles in it are non-negotiable for me. The first is data honesty: what the dashboard shows has to be true, and I will not let it fabricate a number to display progress that has not happened. The second is automated enforcement: a hook inspects edits to the dashboard's core `.js` files and blocks any edit that violates its `file://` architectural invariants, such as `import`, `export`, `type="module"` or `fetch()`. That hook has fired on real edits, mine included. The dashboard also keeps telemetry and audit logs, so there is a persistent record of what changed and when, which is what I need in order to check afterwards whether a safeguard boundary actually held.
 
 ### The User and What Is Protected
 
@@ -136,21 +136,21 @@ I persist each accepted section as a distinct commit, which preserves the full h
 
 ## Artifact → Principle → Evidence
 
-Here I map each governance artifact (the documents, hooks, commits and practices that make the system run) to the safeguards principle it embodies and to a real path anyone can inspect. I do this because I do not want the claims in this document to rest on assertion. Thirteen years in QA taught me to distrust a claim I cannot verify, including my own, so every row below points at something checkable. The diagram after the table summarizes the relationships. Paths are relative to a parent directory holding both the project brain and the ASLAN-ARC repositories.
+Here I map each governance artifact (the documents, hooks, commits and practices that make the system run) to the safeguards principle it embodies and to where it lives. I do this because I do not want the claims in this document to rest on assertion. Thirteen years in QA taught me to distrust a claim I cannot verify, including my own. The public evidence for this document is its own git history, in this repository; the remaining artifacts live in the private working environment where I built the system, and I describe them rather than expose their internal layout. The diagram after the table summarizes the relationships.
 
 | Artifact | Safeguards principle | Evidence (verified path / ref) |
 |----------|----------------------|--------------------------------|
-| Governance charter: deny-by-default, the AI proposes and I approve | Human-in-the-loop, deny-by-default | `calmkit-brain/CLAUDE.md` |
-| Work orders that scope each task ("must contain", "must not touch") | Task scoping, least authority | The work-orders file in `calmkit-brain/`, working-method folder |
-| Canonical method document: roles, and the drafter returns text only and cannot write or commit | Containment, no persistence by the executor | The method document in the same working-method folder |
-| Independent quality-guardian review, a different role audits each draft | Detection, separation of duties | Per-section commits in the `safeguards-case-study/` git history |
-| Automated enforcement hook that blocks edits violating the `file://` invariants | Automated guardrail, policy enforcement | `~/.claude/hooks/aslan-enforcer.js` |
-| Telemetry hook that records tool activity | Audit logging, observability | `~/.claude/hooks/aslan-telemetry.js` |
-| Per-section commits plus project seed commits | Traceability, recovery | `calmkit-brain` commits `8cf270c`, `94fe756`, `2c99c30` |
-| Data-honesty principle: never fabricate a dashboard metric | Truthfulness, no fabrication of data | `ASLAN-ARC/js/data/` and `ASLAN-ARC/js/state.js`. Note honestly: this is a convention I hold myself to, not a rule enforced in those files |
+| Governance charter: deny-by-default, the AI proposes and I approve | Human-in-the-loop, deny-by-default | The project's root governance charter (its auto-loaded context file), in the private workspace |
+| Work orders that scope each task ("must contain", "must not touch") | Task scoping, least authority | The work-orders file in the project's working-method folder (private workspace) |
+| Canonical method document: roles, and the drafter returns text only and cannot write or commit | Containment, no persistence by the executor | The method document in the same working-method folder (private workspace) |
+| Independent quality-guardian review, a different role audits each draft | Detection, separation of duties | Per-section commits in this repository's git history |
+| Automated enforcement hook that blocks edits violating the `file://` invariants | Automated guardrail, policy enforcement | An automated enforcement hook in the author's local environment |
+| Telemetry hook that records tool activity | Audit logging, observability | A telemetry hook in the author's local environment |
+| Per-section commits plus project seed commits | Traceability, recovery | Seed and per-section commits in the project's private repository |
+| Data-honesty principle: never fabricate a dashboard metric | Truthfulness, no fabrication of data | The dashboard's data and state layer. Note honestly: this is a convention I hold myself to, not a rule enforced in those files |
 | Incident Log recording the failures this pipeline caught in itself | Calibrated honesty, transparency about failure | Scoped in my work-orders file but **not yet written**. Entries accumulate as the pipeline catches its own failures |
 
-Several of these are inspectable live: the hooks can be read in the filesystem, the commits queried from git, the state layer opened directly. The appendix will give the exact commands to verify each row. Here I am only concerned with the mapping.
+The public trail for this document is its own commit history, which anyone can query from this repository. The other artifacts sit in the private environment where the system runs; I describe them here rather than expose their paths. Here I am only concerned with the mapping.
 
 <p align="center">
 <svg width="920" height="540" viewBox="0 0 920 540" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="A bipartite map connecting nine governance artifacts on the left to six Safeguards principles on the right.">
@@ -177,10 +177,10 @@ Several of these are inspectable live: the hooks can be read in the filesystem, 
     <rect x="30" y="104" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="127">fichas-de-encargo.md — work orders</text>
     <rect x="30" y="157" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="180">metodo-de-trabajo.md — method doc</text>
     <rect x="30" y="210" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="233">quality-guardian review (Sonnet)</text>
-    <rect x="30" y="263" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="286">aslan-enforcer.js (hook)</text>
-    <rect x="30" y="316" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="339">aslan-telemetry.js (hook)</text>
+    <rect x="30" y="263" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="286">enforcement hook</text>
+    <rect x="30" y="316" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="339">telemetry hook</text>
     <rect x="30" y="369" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="392">git history / per-section commits</text>
-    <rect x="30" y="422" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="445">ASLAN data-honesty convention</text>
+    <rect x="30" y="422" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="445">dashboard data-honesty convention</text>
     <rect x="30" y="475" width="250" height="38" rx="8" fill="#eef3f6" stroke="#3b5566"/><text x="42" y="498">Incident Log (this document)</text>
   </g>
 
