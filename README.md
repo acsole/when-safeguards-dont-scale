@@ -1,5 +1,71 @@
 # Safeguards Case Study
 
+**Analizando mi propio proyecto asistido por IA desde la perspectiva de las medidas de seguridad de la IA y preguntándome qué falla al escalarlo.**
+
+Autor: Andrés Curcio Sole
+
+---
+
+## ¿Qué es esto?
+
+Un estudio de caso que examina un proyecto real de un solo usuario que desarrollé con medidas de seguridad desde el principio:
+
+- Gobernanza de denegación por defecto,
+- Puntos de control de calidad en los flujos de trabajo de los agentes,
+- Ganchos de trazabilidad
+- y rastrea cada medida de seguridad desde mi propia supervisión como fundador único hasta la presión de un despliegue a gran escala con amenazas.
+
+Separa los principios que se mantienen bajo estrés ante amenazas de las fallas que solo aparecen en producción.
+
+La pregunta central: ¿pueden los mecanismos diseñados para un supervisor de confianza sobrevivir cuando millones de usuarios, miles de agentes concurrentes y actores maliciosos ponen a prueba los mismos puntos de control al mismo tiempo? La respuesta que se encuentra en el documento es que no pueden, y que la razón es estructural, no técnica.
+
+## Lo que esto *NO* es
+
+Esto **NO** es una afirmación de seguridad de nivel de producción. Describo el diseño de medidas de seguridad y los casos que he observado. **No tengo una tasa de detección medida, ni afirmo tenerla**.
+
+## Estado: documento en desarrollo, trabajo en progreso
+
+Redacto esto mediante el mismo proceso multiagente que se describe:
+- Un modelo de redacción trabaja con una orden de trabajo que escribo.
+
+- Un modelo de revisión independiente audita el borrador con respecto a dicha orden.
+
+- Apruebo, rechazo o reescribo cada sección antes de que se confirme.
+
+- El repositorio se actualiza a medida que se completan las secciones.
+
+**Escrito hasta ahora:**
+
+- Presentación breve · Contexto · Las cuatro capas · Artefacto → Principio → Evidencia · Modelo de amenazas · Dónde falla a gran escala
+
+**Alcance previsto pero aún no escrito:** Honestidad calibrada (mis limitaciones, explicadas claramente) · Apéndice sobre verificación en vivo · Registro de incidentes de los fallos detectados por este proceso durante la redacción de este documento
+
+## Contenido del repositorio
+
+| Ruta | Qué es |
+
+|------|-----------|
+
+| [`safeguards-case-study.md`](safeguards-case-study.md) | El estudio de caso en sí. |
+
+| [`fichas-de-encargo.md`](fichas-de-encargo.md) | Las órdenes de trabajo ("fichas de encargo"): las especificaciones de tareas atómicas con las que se basó cada sección. Reutilizable como plantilla. |
+
+| [`diagrams/`](diagrams/) | Figuras SVG independientes a las que se hace referencia en el estudio de caso. |
+
+## Proceso de producción
+
+Cada sección sigue el mismo ciclo: un modelo de redacción crea una sección según su orden de trabajo, un modelo de revisión independiente la audita campo por campo y yo la apruebo o la devuelvo. Cada sección aceptada se guarda como una confirmación de Git independiente, por lo que el historial constituye un registro revisable de cómo se construyó el documento. El registro de incidencias del documento registra los fallos detectados durante la creación.
+
+## Licencia
+
+Este repositorio tiene doble licencia:
+
+- **El contenido y los diagramas del estudio de caso** — `safeguards-case-study.md` y todo lo que se encuentra en `diagrams/` — están bajo la licencia **Creative Commons Atribución 4.0 Internacional (CC BY 4.0)**. Consulte [`LICENSE.md`](LICENSE.md). Puede compartir y adaptar este contenido, incluso con fines comerciales, siempre que se cite la fuente adecuadamente.
+Las órdenes de trabajo (fichas-de-encargo.md) están bajo la licencia MIT, por lo que pueden reutilizarse libremente como plantilla. Consulte el archivo LICENSE.
+
+Atribución: Andrés Curcio Sole — Estudio de caso sobre salvaguardias.
+
+-----------------------------------------------------------------[ENGLISH VERSION]-----------------------------------------------------------------
 **Reading my own AI-assisted project through the lens of AI safeguards, and asking what breaks when it scales.**
 
 Author: Andrés Curcio Sole
