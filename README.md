@@ -43,13 +43,9 @@ Redacto esto mediante el mismo proceso multiagente que se describe:
 ## Contenido del repositorio
 
 | Ruta | Qué es |
-
 |------|-----------|
-
 | [`safeguards-case-study.md`](safeguards-case-study.md) | El estudio de caso en sí. |
-
 | [`fichas-de-encargo.md`](fichas-de-encargo.md) | Las órdenes de trabajo ("fichas de encargo"): las especificaciones de tareas atómicas con las que se basó cada sección. Reutilizable como plantilla. |
-
 | [`diagrams/`](diagrams/) | Figuras SVG independientes a las que se hace referencia en el estudio de caso. |
 
 ## Proceso de producción
