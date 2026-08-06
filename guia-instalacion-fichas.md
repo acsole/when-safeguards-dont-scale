@@ -6,30 +6,13 @@
 > memoria) se activa **solo en cada sesión nueva, sin re-setup**; las aprobaciones
 > humanas siguen vigentes. Cada ficha define una tarea **atómica** de redacción;
 > el ejecutor (Haiku 4.5) redacta **una** sección por ficha, el revisor
-> (quality-guardian) la audita contra el "Criterio de listo", y Opus + Andrés
+> (quality-guardian) la audita contra el "Criterio de listo", y Opus + Human-in-the-Loop
 > consolidan y commitean. Mismo pipeline de dogfooding que produjo el canónico.
 >
-> **Decisiones marco (2026-06-24, acordadas con Andrés):**
-> - **Audiencia / forma:** cuerpo **genérico y portable** (las 5 piezas como
->   conceptos aplicables a cualquier entorno con IA) + **Apéndice** con la
->   materialización concreta en **Claude Code** (hooks PostToolUse/PreToolUse,
->   `settings.json`).
-> - **Plantillas:** **completas y copiables** — cada pieza incluye un esqueleto
->   funcional listo para pegar, de modo que el resultado sea verdaderamente
->   *out-of-the-box*.
-> - **Verdad-base:** las piezas reales ya probadas en ASLAN (subagente
->   `aslan-frontend`, skill `aslan-conventions`, hooks `aslan-enforcer.js` /
->   `aslan-telemetry.js`, memoria `MEMORY.md` + archivos) se entregan al redactor
->   como hechos verificados → reduce fabricación (lección de M6).
-> - **Salida final:** un solo `.md` compañero, `00-método-de-trabajo/guia-instalacion.md`,
->   enlazado desde el canónico (como `aplicabilidad-verticales.md`).
-> - **Regla dura:** el ejecutor **devuelve contenido, no persiste**; el
->   director/humano consolida y commitea.
 >
 > **Insumo común a todas las fichas:** el documento canónico
 > [`metodo-de-trabajo.md`](metodo-de-trabajo.md) (sobre todo M4 Memoria, M6
-> Industrialización, M9 Trazabilidad) y el snapshot real de ASLAN
-> (memoria `dashboard_jarvis_arc.md`).
+> Industrialización, M9 Trazabilidad).
 
 ---
 
