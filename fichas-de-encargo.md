@@ -2,7 +2,7 @@
 
 > Documento de scoping (en español, interno). El documento final (`safeguards-case-study.md`) es **100% en inglés**.
 > Cada ficha define una sección atómica. La frontera **NO debe tocar** es lo que evita que los módulos se pisen.
-> Pipeline por sección: Haiku redacta (devuelve contenido, no escribe archivos) → quality-guardian (Sonnet) audita → corrección → Opus + Andrés aprueban → consolidar + commit.
+> Pipeline por sección: Haiku redacta (devuelve contenido, no escribe archivos) → quality-guardian (Sonnet) audita → corrección → Opus + Human-in-the-Loop aprueban → consolidar + commit.
 
 ## Eje intelectual transversal
 El valor diferencial es el **salto de escala**: de "1 usuario / 1 proyecto" → entornos productivos con miles/millones de vidas y adversarios orquestando decenas de miles de agentes. La honestidad calibrada (decir qué NO se afirma) es en sí misma un rasgo Safeguards.
