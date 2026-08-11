@@ -4,7 +4,7 @@
 > Cada ficha define una tarea **atómica** de redacción: su alcance, sus fronteras
 > y su criterio de aceptación. El ejecutor (Haiku 4.5) redacta **un** módulo por
 > ficha; el revisor (Sonnet 4.6 / quality-guardian) lo evalúa contra el
-> "Criterio de listo"; Opus + Andrés consolidan.
+> "Criterio de listo"; Opus + Human-in-the-Loop consolidan.
 >
 > **Decisiones marco (2026-06-22):** audiencia *externo-primero*; salida final =
 > un solo `.md` canónico; principio central = evaluación constante de qué
@@ -45,7 +45,7 @@
 - **Ancla:** referencia de alto nivel al ecosistema del autor (Remanso/ASLAN) como prueba de uso real, sin detalle técnico.
 - **Errores a evitar:** explicar el *cómo* antes del *por qué*; vender la IA como reemplazo del juicio humano (contra restricción #3); tono de manual; prometer resultados de negocio.
 - **Términos clave:** *método de trabajo*, *rol*, *modelo*, *reproducible*, *autoridad humana*, *continuidad*.
-- **Insumos:** `CLAUDE.md` (#1, #3); memoria `sesiones_dedicadas_pendientes.md`.
+- **Insumos:** `CLAUDE.md` (#1, #3); las notas de memoria del proyecto.
 - **Forma de salida:** Markdown, `## 1. Visión y propósito`, tono didáctico externo-primero, sin tablas ni código.
 - **Criterio de listo:** un lector ajeno entiende *por qué querría* usar el método y no hay contenido de otros módulos.
 
@@ -56,12 +56,12 @@
 - **Propósito:** Definir qué hace cada participante (humano y modelos) y dónde empieza y termina su autoridad.
 - **Extensión:** 400–550 palabras.
 - **Preguntas que debe responder:** ¿Quién dirige y por qué? ¿Quién ejecuta? ¿Quién revisa? ¿Quién decide en última instancia? ¿Por qué cada rol se asigna a ese modelo (fortaleza vs. costo)?
-- **Debe contener:** Andrés/humano = autoridad final única que aprueba (restricción #1); Opus = dirige, ordena, hace push-back, define esqueletos; Sonnet 4.6 = ejecuta/revisa calidad; Haiku 4.5 = redacta módulos; tabla rol → responsabilidad → "no hace".
+- **Debe contener:** Human-in-the-Loop = autoridad final única que aprueba (restricción #1); Opus = dirige, ordena, hace push-back, define esqueletos; Sonnet 4.6 = ejecuta/revisa calidad; Haiku 4.5 = redacta módulos; tabla rol → responsabilidad → "no hace".
 - **NO debe tocar:** la *secuencia* de interacción → [[Módulo 3]]; automatización → [[Módulo 6]].
-- **Ancla:** sub-agentes `aslan-frontend` (ejecutor) y `quality-guardian` (revisor) como roles materializados.
+- **Ancla:** un sub-agente ejecutor y un sub-agente revisor independiente como roles materializados.
 - **Errores a evitar:** describir el flujo temporal (es del M3); presentar roles rígidos sin el porqué económico/de capacidad.
 - **Términos clave:** *rol*, *autoridad humana*, *director*, *ejecutor*, *revisor/guardián*, *push-back*.
-- **Insumos:** `CLAUDE.md` (#1, #3); skill `metodo-opus-sonnet`; `sesiones_dedicadas_pendientes.md`.
+- **Insumos:** `CLAUDE.md` (#1, #3); la skill del método; las notas de memoria del proyecto.
 - **Forma de salida:** Markdown, `## 2. …`, admite una tabla de roles.
 - **Criterio de listo:** el lector sabe a quién corresponde cada decisión y por qué.
 
@@ -72,7 +72,7 @@
 - **Propósito:** Mostrar la secuencia operativa de una tarea desde que nace hasta que se aprueba.
 - **Extensión:** 450–600 palabras.
 - **Preguntas que debe responder:** ¿Cómo fluye una tarea? ¿En qué orden intervienen los roles? ¿Dónde entra el checkpoint "¿esto se puede automatizar?"? ¿Qué pasa si la revisión falla?
-- **Debe contener:** flujo (humano+Opus definen esqueleto → Haiku redacta → Sonnet revisa → Opus+Andrés evalúan → consolidación); diagrama lineal simple; el checkpoint de automatización como paso recurrente; el camino de rechazo (vuelve a Haiku con feedback).
+- **Debe contener:** flujo (humano+Opus definen esqueleto → Haiku redacta → Sonnet revisa → Opus+Human-in-the-Loop evalúan → consolidación); diagrama lineal simple; el checkpoint de automatización como paso recurrente; el camino de rechazo (vuelve a Haiku con feedback).
 - **NO debe tocar:** *qué* hace atómica una tarea → [[Módulo 5]]; *cómo* decidir automatizar en profundidad → [[Módulo 6]]; definición de roles → [[Módulo 2]].
 - **Ancla:** esta misma sesión (esqueleto → fichas → Haiku) como ejemplo en acción.
 - **Errores a evitar:** redefinir roles; saltarse la aprobación humana (restricción #1).
@@ -122,10 +122,10 @@
 - **Preguntas que debe responder:** ¿Cuándo conviene automatizar? ¿Qué resuelve cada herramienta? ¿Cómo elegir entre ellas? ¿Cómo se combinan?
 - **Debe contener:** el principio de evaluación constante; qué es y cuándo usar cada una (hook = automatismo determinista/enforcement; skill = conocimiento/convención invocable; subagente = rol con contexto precargado); tabla de decisión (síntoma → herramienta); la idea de combinarlas.
 - **NO debe tocar:** el detalle del ciclo → [[Módulo 3]]; la red de seguridad git → [[Módulo 9]].
-- **Ancla (fuerte):** ASLAN — preámbulo→sub-agente `aslan-frontend`; convenciones→skill `aslan-conventions`; grep manual→hook *enforcer*. Un ejemplo por herramienta.
+- **Ancla (fuerte):** un proyecto real — preámbulo→sub-agente ejecutor; convenciones→skill; grep manual→hook *enforcer*. Un ejemplo por herramienta.
 - **Errores a evitar:** automatizar antes de tener el patrón claro; usar hook donde basta una skill; presentar las opciones como excluyentes.
 - **Términos clave:** *industrialización*, *hook*, *skill*, *subagente*, *enforcement*, *patrón repetido*.
-- **Insumos:** memoria `dashboard_jarvis_arc.md` (industrialización); skill `metodo-opus-sonnet`.
+- **Insumos:** las notas de memoria del proyecto (industrialización); la skill del método.
 - **Forma de salida:** Markdown, `## 6. …`, incluye tabla de decisión.
 - **Criterio de listo:** ante una interacción repetida, el lector sabe elegir entre hook/skill/subagente y justificarlo.
 
@@ -136,12 +136,12 @@
 - **Propósito:** Demostrar con casos concretos que el método funciona en proyectos reales.
 - **Extensión:** 400–550 palabras.
 - **Preguntas que debe responder:** ¿Dónde se aplicó? ¿Qué resultado dio? ¿Qué se aprendió?
-- **Debe contener:** 1–2 casos desarrollados (ASLAN-ARC como principal); para cada uno situación → aplicación del método → resultado; una lección transferible por caso.
+- **Debe contener:** 1–2 casos desarrollados (un dashboard de monitoreo como caso principal); para cada uno situación → aplicación del método → resultado; una lección transferible por caso.
 - **NO debe tocar:** re-explicar conceptos (ya están en M1–M6); detalle técnico que no ilustre el *método*.
-- **Ancla:** ASLAN-ARC (fases, industrialización, honestidad de datos como decisión dirigida).
+- **Ancla:** un dashboard de monitoreo (fases, industrialización, honestidad de datos como decisión dirigida).
 - **Errores a evitar:** convertirlo en documentación técnica del proyecto; casos sin lección.
 - **Términos clave:** consistentes con módulos previos.
-- **Insumos:** `dashboard_jarvis_arc.md`; `vitalis_progress.md`.
+- **Insumos:** las notas de memoria del proyecto (estado y decisiones).
 - **Forma de salida:** Markdown, `## 7. …`, subsecciones por caso.
 - **Criterio de listo:** el lector ve el método "en vivo" y extrae una lección aplicable.
 

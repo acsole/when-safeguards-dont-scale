@@ -1,0 +1,11 @@
+## 1. Visión y propósito
+
+Colaborar con inteligencia artificial sin estructura genera tres problemas casi inevitables: **pérdida de control** sobre qué hace la IA y por qué, **degradación de calidad** porque no hay criterios de revisión claros, y **ruptura de continuidad** cuando la memoria de la conversación anterior se pierde o se malinterpreta.
+
+**La tesis central es simple: cada modelo de IA tiene fortalezas distintas, valiosas en su contexto. Asignamos cada etapa de un trabajo al modelo más apto, mientras un humano actúa como autoridad humana que aprueba, rechaza o mejora antes de que nada se ejecute.** Un modelo experto en dirección no es lo mejor para redacción de detalle; un revisor crítico no es lo mejor para ideación rápida. La memoria persistente entre sesiones ata los cabos sueltos: decisiones previas, contexto acumulado, lecciones aprendidas. Este método no es teoría: nació de aplicarlo en proyectos reales propios, donde la estructura marcó la diferencia entre caos y claridad.
+
+El resultado es un **método reproducible**: cualquier persona con acceso a distintos modelos de IA y estas reglas básicas puede replicar lo que funciona, adaptándolo a su propio proyecto. No es magia, ni IA "autónoma"; es el opuesto: máxima claridad sobre quién decide qué, máximo control humano, máxima especialización de roles.
+
+¿Por qué esto importa más con IA que con un equipo humano tradicional? Porque los modelos de IA son **descartables y rápidos**—puedes cambiar de modelo, reiniciar sesiones, delegar sin fricción. Un equipo humano requiere confianza establecida y contexto lento; la IA requiere lo opuesto: estructura explícita y acuerdos sobre límites. Sin esa estructura, el resultado es caótico. Con ella, es predecible.
+
+Este método reposa sobre tres pilares: **roles claramente definidos**, **un ciclo reproducible**, y **continuidad de memoria**. Juntos hacen que el trabajo con IA sea algo que otro humano, o el mismo humano en una sesión distinta, pueda entender, auditar y ejecutar sin sorpresas. La IA aumenta el juicio humano con información, análisis y generación de opciones; el humano conserva la autoridad sobre todas las decisiones que importan. Es colaboración, no automatización.

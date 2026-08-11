@@ -90,7 +90,7 @@ F4–F8 (instalación pieza por pieza) comparten estructura interna fija:
 - **Preguntas que debe responder:** ¿qué hace? ¿dónde vive? ¿cómo verifico que se cargó sola? ¿qué pongo dentro?
 - **Debe contener:** las cuatro sub-partes fijas (qué hace · dónde vive · cómo verificar · plantilla); explicación de que va en la RAÍZ del proyecto para auto-cargarse; qué tipo de contenido entra (objetivo, restricciones innegociables, modo de trabajo).
 - **NO debe tocar:** memoria persistente → F5 (CLAUDE.md es estático del proyecto, la memoria es viva entre sesiones); detalle de skills/subagentes → F6/F7.
-- **Ancla:** el `CLAUDE.md` real de calmkit-brain (objetivo + 7 restricciones innegociables + modo de trabajo).
+- **Ancla:** un `CLAUDE.md` real de un proyecto (objetivo + restricciones innegociables + modo de trabajo).
 - **Plantilla a incluir:** un `CLAUDE.md` base copiable con secciones: Objetivo, Stack/contexto, Restricciones innegociables, Modo de trabajo (aprobación humana).
 - **Errores a evitar:** confundir CLAUDE.md (estático) con memoria (viva); plantilla atada a un dominio concreto.
 - **Términos clave:** *auto-carga al iniciar sesión*, *invariantes*, *restricciones innegociables*.
@@ -116,7 +116,7 @@ F4–F8 (instalación pieza por pieza) comparten estructura interna fija:
 - **Preguntas que debe responder:** ¿qué hace? ¿dónde vive? ¿cómo verifico que se auto-activó? ¿qué hace que se dispare sola?
 - **Debe contener:** las cuatro sub-partes fijas; el rol decisivo del campo `description`/disparadores (la skill se activa por coincidencia de contexto, no se "entrena"); dos skills recomendadas: convenciones del proyecto y el propio método.
 - **NO debe tocar:** subagentes → F7; hooks → F8; la teoría de cuándo industrializar → M6 (remitir).
-- **Ancla:** skills reales `aslan-conventions` (convenciones técnicas+diseño) y `metodo-opus-sonnet` (el método), auto-activadas por sus disparadores.
+- **Ancla:** dos skills reales de un proyecto (una con las convenciones técnicas+diseño; otra con el propio método), auto-activadas por sus disparadores.
 - **Plantilla a incluir:** un `SKILL.md` copiable: frontmatter con `name` + `description` rica en disparadores (frases que activan), y cuerpo con el conocimiento/convenciones.
 - **Errores a evitar:** decir que la skill "se entrena" (se CARGA, verdad-base anti-fabricación); `description` pobre que no dispara.
 - **Términos clave:** *auto-activación por contexto*, *disparadores (triggers)*, *la skill se carga, no se entrena*.
@@ -129,7 +129,7 @@ F4–F8 (instalación pieza por pieza) comparten estructura interna fija:
 - **Preguntas que debe responder:** ¿qué hace? ¿dónde vive? ¿cómo verifico que trae el contexto sin re-pegarlo? ¿qué configuro?
 - **Debe contener:** las cuatro sub-partes fijas; los dos subagentes núcleo (ejecutor con invariantes; revisor independiente de calidad); cómo el subagente elimina el re-pegado del preámbulo (remite a M2 roles y M6 subagente).
 - **NO debe tocar:** skills → F6; hooks → F8; la teoría de roles → M2 (remitir).
-- **Ancla:** subagentes reales `aslan-frontend` (ejecutor, invariantes file:// precargadas) y `quality-guardian` (revisor independiente).
+- **Ancla:** dos subagentes reales de un proyecto: un ejecutor (con invariantes precargadas) y un revisor independiente.
 - **Plantilla a incluir:** un `.md` de subagente copiable: frontmatter (name, description, tools, model) + cuerpo con rol, invariantes y regla dura "devuelve contenido, no persiste".
 - **Errores a evitar:** que el ejecutor persista archivos (rompe la capa de Prevención de M9); revisor = ejecutor (deben ser independientes, M2).
 - **Términos clave:** *precarga de contexto*, *ejecutor*, *revisor independiente*, *revisor un nivel sobre el ejecutor*.
@@ -142,7 +142,7 @@ F4–F8 (instalación pieza por pieza) comparten estructura interna fija:
 - **Preguntas que debe responder:** ¿qué hace? ¿dónde vive? ¿cómo verifico que bloquea de verdad? ¿qué regla automatizo primero?
 - **Debe contener:** las cuatro sub-partes fijas; la distinción pre-evento (PreToolUse, bloquea antes) vs post-evento (PostToolUse, valida después); que los hooks son para reglas objetivas que NUNCA deben romperse (remite a M6); su rol como capa de Detección/Recuperación (remite a M9).
 - **NO debe tocar:** la sintaxis exacta de registro en `settings.json` → Apéndice F12 (cuerpo es genérico); skills/subagentes → F6/F7.
-- **Ancla:** hooks reales `aslan-enforcer.js` (bloquea import/export/fetch bajo file://) y `aslan-telemetry.js` (siempre exit 0, nunca bloquea).
+- **Ancla:** dos hooks reales de un proyecto: uno de enforcement (bloquea patrones que violan las invariantes) y uno de telemetría (siempre exit 0, nunca bloquea).
 - **Plantilla a incluir:** un esqueleto de hook copiable (lee evento por stdin, evalúa regla, exit 2 = bloquea / exit 0 = permite) — genérico, con la wiring concreta remitida al Apéndice.
 - **Errores a evitar:** hook que bloquea por falso positivo (ej. coincidir dentro de comentarios — lección real de ASLAN); poner reglas subjetivas en un hook (eso es skill).
 - **Términos clave:** *enforcement*, *determinista*, *PreToolUse/PostToolUse*, *exit code de bloqueo*.
@@ -204,10 +204,10 @@ F4–F8 (instalación pieza por pieza) comparten estructura interna fija:
   3. ¿Cómo se invoca un subagente y cómo se auto-activa una skill?
 - **Debe contener:** la correspondencia pieza-genérica → ubicación-Claude-Code; el bloque de registro de hook en `settings.json` (matcher Edit|Write, command); nota de que los hooks suelen activarse al iniciar sesión nueva; convención de hook (stdin del evento, tolerar BOM, exit 2 bloquea / exit 0 permite).
 - **NO debe tocar:** la teoría genérica de cada pieza → F4–F8 (aquí solo la materialización); no re-explicar para qué sirve cada pieza.
-- **Ancla:** las piezas reales de ASLAN en `~/.claude/` (subagentes `aslan-frontend`/`quality-guardian`, skill `aslan-conventions`, hooks `aslan-enforcer.js`/`aslan-telemetry.js` registrados en `settings.json`).
+- **Ancla:** las piezas reales de un proyecto en la carpeta de configuración del entorno (subagentes ejecutor/revisor, una skill de convenciones, hooks de enforcement/telemetría registrados en `settings.json`).
 - **Plantilla a incluir:** bloque `settings.json` copiable (registro de un hook PostToolUse) + estructura de carpetas `.claude/` + frontmatter real de subagente y de skill.
 - **Errores a evitar:** mezclar la materialización en el cuerpo genérico; inventar rutas o sintaxis (usar las verificadas de ASLAN como verdad-base).
-- **Términos clave:** `~/.claude/`, `settings.json`, *matcher*, *PostToolUse/PreToolUse*, *exit 2*.
+- **Términos clave:** `.claude/`, `settings.json`, *matcher*, *PostToolUse/PreToolUse*, *exit 2*.
 - **Criterio de listo:** un usuario de Claude Code copia el apéndice y deja las 5 piezas operativas.
 
 ---
