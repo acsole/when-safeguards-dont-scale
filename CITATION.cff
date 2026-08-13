@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use or reference this work, please cite it as below."
+title: "When Safeguards Don't Scale: A Case Study on AI Safeguards and the AI Working-Method Behind It"
+authors:
+  - family-names: "Curcio Sole"
+    given-names: "Andrés"
+date-released: 2026-07-30
+version: "0.1.0"
+license: CC-BY-4.0
+repository-code: "https://github.com/acsole/when-safeguards-dont-scale"
+keywords:
+  - ai-safety
+  - safeguards
+  - scalable-oversight
+  - ai-governance
+  - human-ai-collaboration
+  - ai-assisted-development
+  - case-study
