@@ -1,2 +1,17 @@
+# Dependencies (if any local tooling is used)
 node_modules/
+
+# OS
 .DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*~
+
+# Secrets (safety net - this repo should never contain any)
+.env
+.env.*
+*.key
