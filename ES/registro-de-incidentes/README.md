@@ -26,8 +26,8 @@ exactamente el argumento a favor de que existan varias.
 
 | Registro | Qué documenta |
 |---|---|
-| [`metodo-de-trabajo.md`](metodo-de-trabajo.md) | Ocho sesiones de incidencias durante la redacción del documento canónico (M1-M9), más el cierre que las resume |
-| Bitácora de la guía de adopción | Vive todavía dentro de [`install/guia-instalacion.md`](../install/guia-instalacion.md), en su Anexo A. Se moverá acá cuando la guía esté completa |
+| [`método-de-trabajo-incidentes.md`](método-de-trabajo-incidentes.md) | Ocho sesiones de incidencias durante la redacción del documento canónico (M1-M9), más el cierre que las resume |
+| Bitácora de la guía de adopción | Vive todavía dentro de [`instalaciones/guía-instalación.md`](../instalaciones/guía-instalación.md), en su Anexo A. Se moverá acá cuando la guía esté completa |
 
 ## Los modos de fallo catalogados hasta hoy
 

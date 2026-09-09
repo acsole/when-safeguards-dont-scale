@@ -11,7 +11,7 @@
 >
 >
 > **Insumo común a todas las fichas:** el documento canónico
-> [`metodo-de-trabajo.md`](metodo-de-trabajo.md) (sobre todo M4 Memoria, M6
+> [`docs/00-índice.md`](../docs/00-índice.md) (sobre todo M4 Memoria, M6
 > Industrialización, M9 Trazabilidad).
 
 ---

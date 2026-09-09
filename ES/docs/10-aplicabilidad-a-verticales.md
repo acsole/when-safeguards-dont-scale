@@ -1,7 +1,7 @@
 # Aplicabilidad del método de trabajo con IA a verticales de negocio
 
 > **Qué es este archivo.** Un complemento del documento canónico
-> [del método](00-indice.md). Muestra cómo el método —los
+> [del método](00-índice.md). Muestra cómo el método —los
 > mismos roles, fichas, severidad proporcional, memoria, trazabilidad e
 > industrialización— se mapea a distintas industrias, para que un lector de
 > cualquier sector se vea reflejado y sepa cómo aplicarlo en su contexto.
