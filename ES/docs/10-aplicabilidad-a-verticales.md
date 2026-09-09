@@ -13,7 +13,7 @@
 > el Módulo 7 del documento canónico.) Esta distinción es deliberada: es la misma
 > regla anti-fabricación que el método aplica a sí mismo.
 >
-> **Estructura común.** Cada vertical sigue siete campos: contexto típico ·
+> **Estructura común.** Cada vertical sigue seis campos: contexto típico ·
 > mapeo de roles · la ficha de encargo aquí · dónde sube la severidad · memoria,
 > trazabilidad e industrialización · beneficio concreto. Al final, una **plantilla
 > reusable** para que cualquiera mapee su propia vertical.
