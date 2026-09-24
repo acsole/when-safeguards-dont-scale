@@ -36,20 +36,19 @@ atomicity, and only then the cycle that uses it.
 
 If you're here to implement it: **2 → 5 → 9**, and from there straight to
 [the installation guide](../installation/installation-guide.md) and
-[the templates](../../ES/plantillas/) (the templates in Spanish for now).
+[the templates](../templates/).
 
 If you're here to judge whether the method holds up:
-**8 → [incident log](../../ES/registro-de-incidentes/) → 9** (in Spanish for now). Limits
+**8 → [incident log](../incident-log/) → 9**. Limits
 first, then the real failures, and last the layers that contain them.
 
 ## Where the rest lives
 
 - [`installation/`](../installation/) — the step-by-step adoption guide (the canonical guide plus its work-order blueprint), in English.
+- [`incident-log/`](../incident-log/) — the failures the method caught while documenting itself, including those in its own upper layers.
+- [`templates/`](../templates/) — the copy-paste skeletons for each piece.
 
-These folders don't have an English version yet, so the links point to the Spanish originals:
+Not translated yet, so the link points to the Spanish original:
 
-- [`registro-de-incidentes/`](../../ES/registro-de-incidentes/) — the failures the method
-  caught while documenting itself, including those in its own upper layers.
 - [`fichas-de-encargo/`](../../ES/fichas-de-encargo/) — the real work orders that produced this
   documentation. They serve as evidence and as worked examples.
-- [`plantillas/`](../../ES/plantillas/) — the copy-paste skeletons for each piece.
