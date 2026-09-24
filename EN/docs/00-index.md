@@ -3,8 +3,8 @@
 > Canonical document. Audience: outsider-first (written to teach someone seeing it
 > for the first time, with internal notes where they help). It is built module by
 > module against the blueprint in
-> [`fichas-de-encargo/método-de-trabajo-con-las-fichas.md`](../../ES/fichas-de-encargo/método-de-trabajo-con-las-fichas.md)
-> (in Spanish for now). Each module goes through the cycle: drafting (economical
+> [`work-orders/method-work-orders.md`](../work-orders/method-work-orders.md).
+> Each module goes through the cycle: drafting (economical
 > model) → review (independent reviewer) → assessment and consolidation (director +
 > human authority).
 >
@@ -46,9 +46,5 @@ first, then the real failures, and last the layers that contain them.
 
 - [`installation/`](../installation/) — the step-by-step adoption guide (the canonical guide plus its work-order blueprint), in English.
 - [`incident-log/`](../incident-log/) — the failures the method caught while documenting itself, including those in its own upper layers.
+- [`work-orders/`](../work-orders/) — the real work orders that produced this documentation. They serve as evidence and as worked examples.
 - [`templates/`](../templates/) — the copy-paste skeletons for each piece.
-
-Not translated yet, so the link points to the Spanish original:
-
-- [`fichas-de-encargo/`](../../ES/fichas-de-encargo/) — the real work orders that produced this
-  documentation. They serve as evidence and as worked examples.

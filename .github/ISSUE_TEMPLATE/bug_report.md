@@ -6,7 +6,7 @@ labels: bug
 ---
 
 **Where did you find it?**
-- [ ] Case study (`ES/safeguards-case-study.md`)
+- [ ] Case study (`safeguards-case-study.md`)
 - [ ] Working-method (`ES/docs/`)
 - [ ] Installation guide (`ES/instalaciones/`)
 - [ ] Templates or work orders (`ES/plantillas/`, `ES/fichas-de-encargo/`)

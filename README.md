@@ -17,7 +17,7 @@ Pero hay una segunda capa: **este repositorio se produjo con el mismo método qu
 
 ## Qué vas a encontrar acá
 
-Tres piezas conectadas, cada una útil por separado:
+Tres piezas conectadas, cada una útil por separado, disponibles **en español y en inglés**:
 
 | Pieza | Qué es | Estado |
 |---|---|---|
@@ -29,14 +29,19 @@ Más las **fichas de encargo** (los *blueprints* que produjeron cada documento),
 
 ## Cómo navegarlo
 
-Todo el contenido está en español en [`ES/`](ES/) (la versión en inglés, en [`EN/`](EN/), llegará más adelante):
+El repositorio es **bilingüe**: cada pieza vive en español bajo [`ES/`](ES/) y en inglés bajo [`EN/`](EN/). El estudio de caso, escrito directamente en inglés, es la pieza raíz.
 
-- [`ES/safeguards-case-study.md`](ES/safeguards-case-study.md) — el estudio de caso.
-- [`ES/docs/`](ES/docs/) — el método de trabajo, módulo por módulo.
-- [`ES/instalaciones/guía-instalación.md`](ES/instalaciones/guía-instalación.md) — la guía de instalación completa.
-- [`ES/plantillas/`](ES/plantillas/) — plantillas copiables (contexto base, skill, subagente, hook, memoria, ficha).
-- [`ES/registro-de-incidentes/`](ES/registro-de-incidentes/) — los fallos que el proceso atrapó al escribirse.
-- [`diagrams/`](diagrams/) — figuras SVG.
+- [`safeguards-case-study.md`](safeguards-case-study.md) — el estudio de caso (en la raíz del repositorio; escrito en inglés).
+
+| Pieza | Español | English |
+|---|---|---|
+| El método, módulo por módulo | [`ES/docs/`](ES/docs/) | [`EN/docs/`](EN/docs/) |
+| Guía de instalación completa | [`ES/instalaciones/`](ES/instalaciones/) | [`EN/installation/`](EN/installation/) |
+| Plantillas copiables | [`ES/plantillas/`](ES/plantillas/) | [`EN/templates/`](EN/templates/) |
+| Fichas de encargo (los *blueprints*) | [`ES/fichas-de-encargo/`](ES/fichas-de-encargo/) | [`EN/work-orders/`](EN/work-orders/) |
+| Registro de incidentes | [`ES/registro-de-incidentes/`](ES/registro-de-incidentes/) | [`EN/incident-log/`](EN/incident-log/) |
+
+Y [`diagrams/`](diagrams/) — figuras SVG (neutras al idioma).
 
 ## Lo que esto NO es
 
@@ -44,7 +49,7 @@ No es una afirmación de seguridad de nivel de producción. Describo diseño de 
 
 ## Licencia
 
-- **Contenido y diagramas** (`ES/safeguards-case-study.md`, `ES/docs/`, `diagrams/`): **CC BY 4.0** — ver [`LICENSE.md`](LICENSE.md).
+- **Contenido y diagramas** (`safeguards-case-study.md`, `ES/docs/`, `EN/docs/`, `diagrams/`): **CC BY 4.0** — ver [`LICENSE.md`](LICENSE.md).
 - **Fichas y plantillas** (*work orders*, reusables): **MIT** — ver [`LICENSE-fichas`](LICENSE-fichas).
 
 Atribución: *Andrés Curcio Sole — When Safeguards Don't Scale*.
@@ -61,7 +66,7 @@ But there is a second layer: **this repository was produced with the very method
 
 ## What you'll find here
 
-Three connected pieces, each useful on its own:
+Three connected pieces, each useful on its own, available **in Spanish and English**:
 
 | Piece | What it is | Status |
 |---|---|---|
@@ -73,13 +78,19 @@ Plus the **work orders** (the blueprints behind each document), the reusable **t
 
 ## How to navigate it
 
-Everything is in Spanish under [`ES/`](ES/) for now (the English version, under [`EN/`](EN/), will follow):
+The repository is **bilingual**: every piece lives in Spanish under [`ES/`](ES/) and in English under [`EN/`](EN/). The case study, written directly in English, is the root piece.
 
-- [`ES/safeguards-case-study.md`](ES/safeguards-case-study.md) — the case study (written in English).
-- [`ES/docs/`](ES/docs/) — the working-method, module by module.
-- [`ES/instalaciones/guía-instalación.md`](ES/instalaciones/guía-instalación.md) — the complete installation guide.
-- [`ES/plantillas/`](ES/plantillas/) — copy-paste templates.
-- [`ES/registro-de-incidentes/`](ES/registro-de-incidentes/) — the failures the process caught as it was written.
+- [`safeguards-case-study.md`](safeguards-case-study.md) — the case study (at the repository root; written in English).
+
+| Piece | Español | English |
+|---|---|---|
+| The working-method, module by module | [`ES/docs/`](ES/docs/) | [`EN/docs/`](EN/docs/) |
+| The complete installation guide | [`ES/instalaciones/`](ES/instalaciones/) | [`EN/installation/`](EN/installation/) |
+| Copy-paste templates | [`ES/plantillas/`](ES/plantillas/) | [`EN/templates/`](EN/templates/) |
+| Work orders (the blueprints) | [`ES/fichas-de-encargo/`](ES/fichas-de-encargo/) | [`EN/work-orders/`](EN/work-orders/) |
+| Incident log | [`ES/registro-de-incidentes/`](ES/registro-de-incidentes/) | [`EN/incident-log/`](EN/incident-log/) |
+
+And [`diagrams/`](diagrams/) — SVG figures (language-neutral).
 
 ## What this is NOT
 
@@ -87,7 +98,7 @@ Not a claim of production-grade security. I describe safeguard design and the ca
 
 ## License
 
-- **Content and diagrams**: **CC BY 4.0** — see [`LICENSE.md`](LICENSE.md).
+- **Content and diagrams** (`safeguards-case-study.md`, `ES/docs/`, `EN/docs/`, `diagrams/`): **CC BY 4.0** — see [`LICENSE.md`](LICENSE.md).
 - **Work orders and templates**: **MIT** — see [`LICENSE-fichas`](LICENSE-fichas).
 
 Attribution: *Andrés Curcio Sole — When Safeguards Don't Scale*.

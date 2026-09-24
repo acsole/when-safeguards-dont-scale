@@ -196,7 +196,7 @@ F4–F8 (piece-by-piece installation) share a fixed internal structure:
 
 ## Work order 12 — Appendix: realization in Claude Code
 
-- **Purpose:** Land the 5 generic pieces in the concrete tool (Claude Code), with the real wiring.
+- **Purpose:** Ground and map the 5 generic pieces in the concrete tool (Claude Code), with the real wiring.
 - **Length:** 350-500 words + concrete templates.
 - **Questions it must answer:**
   1. Where does each piece physically go in Claude Code? (root `CLAUDE.md`, `.claude/skills/`, subagents, hooks, `settings.json`)

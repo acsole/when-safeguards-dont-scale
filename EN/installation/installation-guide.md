@@ -432,7 +432,7 @@ For the full decision table and examples of each piece, see the method document.
 
 ---
 
-## 12. Appendix: realization in Claude Code
+## 12. Appendix: what it looks like in Claude Code
 
 The method's five pieces are not abstractions: in Claude Code each one is realized in a concrete file or configuration entry, which the tool discovers and applies on its own from the first session. This appendix maps each piece to its exact place and shows the real syntax for registering a hook, so you can copy and adapt without guessing. The example file names are illustrative: replace them with your own.
 

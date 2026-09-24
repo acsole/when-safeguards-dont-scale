@@ -28,7 +28,7 @@
 |---|---------|----------|--------------------|-----------------|
 | 2.1 | The "why" of **strength ↔ cost** per role was not made explicit | 🟡 Improvement | Added the cost-benefit reasoning of each assignment | The module had to justify the assignment, not just state it |
 | 2.2 | The severity principle was repeated **three times** | 🟡 Improvement | Consolidated into a single formulation + a brief close | Economy; redundancy dilutes the message |
-| 2.3 | "Who decides in the last instance?" lacked its own force | ⚪ Minor | Stated explicitly in the table ("Decides in the last instance") | The work order's four questions had to carry equal weight |
+| 2.3 | "Who is the **final decision-maker**?" lacked its own force | ⚪ Minor | Stated explicitly in the table ("Who is the **final decision-maker**?") | The work order's four questions had to carry equal weight |
 | 2.4 | **5 subheadings** for ~480 words → fragmentation | ⚪ Minor | Reduced to 2 | A compact structure in line with the work order |
 
 **Notable calibration incident:** during this review, the reviewer **corrected the director**. Opus estimated "more than 650 words, over the range"; the reviewer's real count was **483 words, within range**. Takeaway: quantitative estimates are verified by counting, not by eye — and the review layer applies **to the director too**, not just to the executor.
@@ -167,4 +167,4 @@ The guardian confirmed the three fabrications were resolved, but raised a **new 
 
 The **9 modules are consolidated** and the document is complete. This log records **8 incident sessions** (M1–M9; M5 with two rounds, M3/M4/M7 too) that cover a repertoire of drafter failure modes — **redundancy, fabrication, omission, embellishment and internal proper name** — plus one case of **reviewer fallibility** (a length false positive in M7) and two of **director fallibility** (leniency in M4). In every case the structure — not trust in a role — contained the error. That is, in one sentence, the method.
 
-**Complements.** To see how the method maps to different industries (marketing, real estate, IT) and a template for adapting it to any vertical, see [`docs/10-applicability-to-verticals.md`](../docs/10-applicability-to-verticals.md). The blueprint of atomic tasks that produced this document is in [`fichas-de-encargo/método-de-trabajo-con-las-fichas.md`](../../ES/fichas-de-encargo/método-de-trabajo-con-las-fichas.md) (in Spanish for now).
+**Complements.** To see how the method maps to different industries (marketing, real estate, IT) and a template for adapting it to any vertical, see [`docs/10-applicability-to-verticals.md`](../docs/10-applicability-to-verticals.md). The blueprint of atomic tasks that produced this document is in [`work-orders/method-work-orders.md`](../work-orders/method-work-orders.md).
